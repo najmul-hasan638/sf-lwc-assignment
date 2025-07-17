@@ -1,0 +1,41 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-modal="true" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close" title="Close" onclick={handleCancel}>
+                    <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                </button>
+                <h2 class="slds-modal__title">New Project Task</h2>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium">
+                <template if:true={isLoading}>
+                    <div class="slds-p-around_medium">
+                        <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+                    </div>
+                </template>
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item size="12" flexibility="auto" padding="horizontal-medium">
+                        <lightning-input label="Name" type="text" value={name} name="name" onchange={handleOnChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" flexibility="auto" padding="horizontal-medium">
+                        <lightning-combobox label="Status" value={status} options={statusOptions} name="status" onchange={handleOnChange}>
+                        </lightning-combobox>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" flexibility="auto" padding="horizontal-medium">
+                        <lightning-input label="Due Date" type="date" value={dueDate} name="dueDate" onchange={handleOnChange}>
+                        </lightning-input>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout-item size="12" flexibility="auto" padding="around-small"
+                                    class="slds-align_absolute-center">
+                    <lightning-button label="Create" variant="brand" class="slds-var-p-horizontal_medium" onclick={handleCreate}>    
+                    </lightning-button>
+                    <lightning-button label="Cancel" variant="brand" onclick={handleCancel}>
+                    </lightning-button>
+                </lightning-layout-item>
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template> 

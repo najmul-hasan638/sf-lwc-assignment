@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Project Tasks">
+        <div slot="actions">
+            <lightning-button label="New Task" onclick={openModal} variant="brand"></lightning-button>
+        </div>
+        <div class="datatable-container">
+            <lightning-datatable
+                key-field="Id"
+                data={tasks}
+                columns={columns}
+                draft-values={draftValues}
+                enable-infinite-loading
+                onloadmore={handleLoadMore}
+                onsave={handleSave}
+                onrowaction={handleRowAction}
+                hide-checkbox-column
+                show-row-number-column
+            >
+            </lightning-datatable>
+            <template if:true={isLoading}>
+                <div class="slds-p-around_medium">
+                    <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+                </div>
+            </template>
+        </div>
+        <template if:true={isModalOpen}>
+            <c-create-project-task-modal account-id={recordId} onclose={closeModal} oncreated={handleTaskCreated}></c-create-project-task-modal>
+        </template>
+    </lightning-card>
+</template>
