@@ -32,9 +32,9 @@ This Salesforce project includes a robust Project Task List feature built with L
 
 ## Usage
 
-1.create a new scratch org
-2. Run `sf project deploy start --source-dir force-app --ignore-conflicts`.
-3. Assign `SF LWC Assignment Permissions` Permission Set to your scratch org user.
-3. Use the "Manage Project Tasks" button to add new Project Tasks, or edit/delete existing ones directly from the list.
+  - create a new scratch org
+  - Run `sf project deploy start --source-dir force-app --ignore-conflicts`.
+  - Assign `SF LWC Assignment Permissions` Permission Set to your scratch org user.
+  - Use the "Manage Project Tasks" button to add new Project Tasks, or edit/delete existing ones directly from the list.
 
 
